@@ -15,14 +15,18 @@ int main()
 	cout << "Input number: ";
 	cin >> n;
 	int upper_bound = ceil(sqrt(n));
-	for (int i = 2; i <= upper_bound; i++)
-	{
-		if (n % i == 0)
+	if (n < 2) {
+		is_prime = false;
+	} else if (n > 2) {
+		for (int i = 2; i <= upper_bound; i++)
 		{
-			is_prime = false;
-			break;
+			if (n % i == 0)
+			{
+				is_prime = false;
+				break;
+			}
 		}
-	}
+	} // noted that if n == 2 it will be true
 	if (is_prime)
 	{
 		cout << n << " is Prime" << endl;
